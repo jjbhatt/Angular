@@ -1,0 +1,65 @@
+<p>
+  update-employee works!
+</p>
+
+<form #employeeForm="ngForm">
+    <table class="table table-bordered col-6">
+        <tr>
+            <td>
+                First Name:
+            </td>
+            <td>
+                <input required placeholder="First Name" type="text" name="fname" id="fname" [(ngModel)]="fname" #firstName="ngModel" />
+            </td>
+        </tr>
+        <tr *ngIf="firstName.invalid && firstName.touched">
+            <td colspan="2" class="has-error">Enter Valid Name..</td>
+        </tr>
+        <tr>
+            <td>
+                Last Name:
+            </td>
+            <td>
+                <input required placeholder="Last Name" type="text" name="lname" id="lname" [(ngModel)]="lname" #lastName="ngModel" />
+            </td>
+        </tr>
+        <tr *ngIf="lastName.invalid && lastName.touched">
+            <td colspan="2">Enter Valid Name..</td>
+        </tr>
+        <tr>
+            <td>
+                Gender:
+            </td>
+            <td>
+                Male <input type="radio" name="radGender" [(ngModel)]="radGender" id="radMale" value="Male" />
+                Female  <input type="radio" name="radGender" [(ngModel)]="radGender" id="radFemale" value="Female" />
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Salary:
+            </td>
+            <td>
+                <input required type="text" placeholder="Salary" name="salary" id="salary" [(ngModel)]="salary" #employeeSalary="ngModel" />
+            </td>
+        </tr>
+        <tr *ngIf="employeeSalary.invalid && employeeSalary.touched">
+            <td colspan="2">Enter Valid Salary..</td>
+        </tr>
+        <tr>
+            <td>
+                <input type="button" value="Update Employee" [disabled]="employeeForm.invalid" (click)="UpdateEmployee(employeeForm.value)" />
+                <!-- You can also use the submit button and in form tag - (submit)="AddEmployee()" -->
+            </td>
+            <td>
+                <input type="button" value="Reset" (click)="employeeForm.reset()" />
+            </td>
+        </tr>
+    </table>
+</form>
+
+<div>
+    <a style="cursor:pointer;color:cornflowerblue" routerLink="/employeeList">Back</a>
+</div>
+{{employeeForm.valid}}
+{{firstName.valid}}

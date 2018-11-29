@@ -1,0 +1,96 @@
+<nav class="nav navbar">
+    <ul class="nav">
+        <li>
+            <a style="cursor:pointer;color:cornflowerblue" (click)="createNewEmployee()">Add New Employee</a>
+        </li>
+    </ul>
+</nav>
+
+
+<div *ngIf="IsEmployeeDeleted" class="btn-success">
+    Employee Deleted
+</div>
+
+<table class="table-bordered table-hover">
+        <thead>
+            <tr>
+                <th>
+                    Employee Id
+                </th>
+                <th>
+                    First Name
+                </th>
+                <th>
+                    Last Name
+                </th>
+                <th>
+                    Gender
+                </th>
+                <th>
+                    Salary
+                </th>
+                <th></th>
+                <th></th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody *ngIf="employees">
+            <tr *ngFor="let employee of employees">
+                <td>
+                    {{employee.ID}}
+                </td>
+                <td>
+                    {{employee.FirstName}}
+                </td>
+                <td>
+                    {{employee.LastName}}
+                </td>
+                <td>
+                    {{employee.Gender}}
+                </td>
+                <td>
+                    {{employee.Salary}}
+                </td>
+                <td>
+                    <a style="cursor:pointer;color:cornflowerblue" (click)="removeEmployee(employee.ID)">Delete</a>
+                </td>
+                <td>
+                    <a style="cursor:pointer;color:cornflowerblue" (click)="showEmployeeDetail(employee.ID)">Show Detail</a>
+                </td>
+                <td>
+                    <a style="cursor:pointer;color:cornflowerblue" (click)="updateEmployee(employee.ID)">Update</a>
+                </td>
+            </tr>
+        </tbody>
+        <tbody *ngIf="!employees">
+            Loading...
+        </tbody>
+    </table>
+
+<!-- After clicking the button open the modal dialog using open/close event binding methods -->
+<div class="backdrop" [ngStyle]="{'display':display}"></div>
+
+<!-- modal -->
+<div class="modal" tabindex="-1" role="dialog"  [ngStyle]="{'display':display}">
+  <!-- modal-dialog -->
+  <div class="modal-dialog" role="document">
+    <!-- modal-content -->
+    <div class="modal-content">
+      <!-- modal-header -->
+      <div class="modal-header">
+        <button type="button" class="close" aria-label="Close" (click)="closeModalDialog()"><span aria-hidden="true">&times;</span></button>
+        <!-- <h4 class="modal-title">Login</h4> -->
+      </div>
+
+      <!-- modal-body -->
+      <div class="modal-body">
+       Are you sure you want to delete this record?
+      </div>
+
+      <!-- modal-footer -->
+      <div class="modal-footer">
+          <button type="button" class="btn btn-default" (click)="DeleteRecord('Yes')">Yes</button>  <button type="button" class="btn btn-default" (click)="DeleteRecord('No')" >No</button>
+      </div>
+    </div>
+  </div>
+</div>
