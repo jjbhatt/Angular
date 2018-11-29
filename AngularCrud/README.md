@@ -2,6 +2,9 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.0.8. This includes basic CRUD operation by consuming the ASP.NET Web API.
 
+# Note
+ You may need to encompass node_modules to this project in order to run.
+
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
