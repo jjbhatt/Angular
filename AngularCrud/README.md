@@ -1,6 +1,6 @@
-# AllInAngular
+# Angular CRUD
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.0.8.
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.0.8. This includes basic CRUD operation by consuming the ASP.NET Web API.
 
 ## Development server
 
